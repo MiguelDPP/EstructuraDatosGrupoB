@@ -1,4 +1,5 @@
 ﻿using EstructuraDeDatos.Domain;
+using EstructuraDeDatos.DynamicStructure;
 using EstructuraDeDatos.Infraestructure;
 using EstructuraDeDatos.Tools;
 using System;
@@ -14,7 +15,7 @@ namespace EstructuraDeDatos.Presentation
     public partial class FrLista : Form
     {
         private RepositorioEstudiantes _repositorio;
-        private List<Estudiante> _estudiantes;
+        private Lista<Estudiante> _estudiantes;
         private int currenIndex = 0;
 
         private long cedula = 0;
@@ -23,12 +24,8 @@ namespace EstructuraDeDatos.Presentation
         {
             InitializeComponent();
 
-            if (!File.Exists("estudiantes.txt") == null)
-            {
-                File.Create("estudiantes.txt").Close();
-            }
             _repositorio = RepositorioEstudiantes.GetInstance("estudiantes.txt");
-            _estudiantes = _repositorio.GetAll().ToList();
+            _estudiantes = _repositorio.GetAll();
             this.Shown += FrLista_Show;
         }
 
@@ -46,16 +43,17 @@ namespace EstructuraDeDatos.Presentation
         private void FrLista_Show(object sender, EventArgs e)
         {
             if (_estudiantes == null || _estudiantes.Count == 0) return;
-            Estudiante estudiante = _estudiantes[currenIndex];
+            Paginator<Estudiante> paginator = _estudiantes.moveToHead();
+            Estudiante estudiante = paginator.Data;
             SetEstudiante(estudiante);
-            DisplayCounter();
+            DisplayCounter(paginator);
         }
 
 
         // -------------- Paginacion ------------------
-        private void DisplayCounter()
+        private void DisplayCounter(Paginator<Estudiante> paginator)
         {
-            txtPag.Text = (currenIndex + 1) + " / " + _estudiantes.Count.ToString();
+            txtPag.Text = paginator.Page + " / " + paginator.TotalPage;
         }
 
         private void Navegar_Click(object sender, EventArgs e)
@@ -64,32 +62,36 @@ namespace EstructuraDeDatos.Presentation
 
             if (_estudiantes == null || _estudiantes.Count == 0) return;
 
+            Paginator<Estudiante> paginator = null;
+
             switch (button.Text)
             {
                 case "<<":
-                    currenIndex = 0;
+                    paginator = _estudiantes.moveToHead();
                     break;
                 case "<":
                     //if(currenIndex > 0)
                     //{
                     //currenIndex--;
                     //}
-                    currenIndex = (currenIndex > 0) ? currenIndex - 1 : 0;
+                    paginator = _estudiantes.moveToLeft();
                     break;
                 case ">":
-                    currenIndex = (currenIndex < _estudiantes.Count - 1) ? currenIndex + 1 : 0;
+                    paginator = _estudiantes.moveToRigth();
                     //currenIndex++;
                     break;
                 case ">>":
-                    currenIndex = _estudiantes.Count - 1;
+                    paginator = _estudiantes.moveToLast();
                     break;
             }
+            if (paginator != null)
+            {
+                Estudiante estudiante = paginator.Data;
+                SetEstudiante(estudiante);
 
-            Estudiante estudiante = _estudiantes[currenIndex];
-            SetEstudiante(estudiante);
-
-            DisplayCounter();
-
+                cedula = estudiante.Id;
+                DisplayCounter(paginator);
+            }
         }
 
         // -------------- ///// ------------------
@@ -227,7 +229,7 @@ namespace EstructuraDeDatos.Presentation
         {
             _repositorio.Commit();
             MessageBox.Show("¿desea guardad los cambios?", "s", MessageBoxButtons.YesNo);
-            DisplayCounter();
+            //DisplayCounter();
         }
 
         private void toolStripButtonAddEstudiante_Click(object sender, EventArgs e)
@@ -244,7 +246,7 @@ namespace EstructuraDeDatos.Presentation
                 FillEstudiante(estudiante);
                 _repositorio.Add(estudiante);
                 MessageBox.Show("Estudiante agregado correctamente");
-                DisplayCounter();
+                //DisplayCounter();
             }
         }
 

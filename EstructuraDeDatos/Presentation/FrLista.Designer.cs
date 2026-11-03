@@ -230,6 +230,7 @@
             btnPagLast.TabIndex = 4;
             btnPagLast.Text = ">>";
             btnPagLast.UseVisualStyleBackColor = true;
+            btnPagLast.Click += Navegar_Click;
             // 
             // btnPagNext
             // 
@@ -239,6 +240,7 @@
             btnPagNext.TabIndex = 3;
             btnPagNext.Text = ">";
             btnPagNext.UseVisualStyleBackColor = true;
+            btnPagNext.Click += Navegar_Click;
             // 
             // txtPag
             // 
@@ -256,6 +258,7 @@
             btnPagBack.TabIndex = 1;
             btnPagBack.Text = "<";
             btnPagBack.UseVisualStyleBackColor = true;
+            btnPagBack.Click += Navegar_Click;
             // 
             // btnPagHead
             // 
@@ -265,6 +268,7 @@
             btnPagHead.TabIndex = 0;
             btnPagHead.Text = "<<";
             btnPagHead.UseVisualStyleBackColor = true;
+            btnPagHead.Click += Navegar_Click;
             // 
             // panelPrograma
             // 
