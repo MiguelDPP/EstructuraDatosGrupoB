@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EstructuraDeDatos.Presentation.Pilas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,20 @@ namespace EstructuraDeDatos.Presentation
             FrListaBasica frListaBasica = new FrListaBasica();
             frListaBasica.MdiParent = this;
             frListaBasica.Show();
+        }
+
+        private void pilaBasicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrPilaBasica frPilaBasica = new FrPilaBasica();
+            frPilaBasica.MdiParent = this;
+            frPilaBasica.Show();
+        }
+
+        private void torreDeHanoiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrHanoiTower frHanoiTower = new FrHanoiTower();
+            frHanoiTower.MdiParent = this;
+            frHanoiTower.Show();
         }
     }
 }
