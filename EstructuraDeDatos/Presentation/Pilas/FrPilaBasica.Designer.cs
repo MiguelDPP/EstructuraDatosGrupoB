@@ -34,7 +34,7 @@
             lbProductTitle = new Label();
             groupBoxPilaPendding = new GroupBox();
             btnClearPending = new Button();
-            listViewPilaPendding = new ListView();
+            listViewPendding = new ListView();
             groupBoxPaid = new GroupBox();
             btnClearPaid = new Button();
             listViewPaid = new ListView();
@@ -50,18 +50,21 @@
             groupBoxData.Controls.Add(btnAdd);
             groupBoxData.Controls.Add(txtAddProduct);
             groupBoxData.Controls.Add(lbProductTitle);
-            groupBoxData.Location = new Point(32, 36);
+            groupBoxData.Location = new Point(37, 48);
+            groupBoxData.Margin = new Padding(3, 4, 3, 4);
             groupBoxData.Name = "groupBoxData";
-            groupBoxData.Size = new Size(432, 76);
+            groupBoxData.Padding = new Padding(3, 4, 3, 4);
+            groupBoxData.Size = new Size(494, 101);
             groupBoxData.TabIndex = 0;
             groupBoxData.TabStop = false;
             groupBoxData.Text = "Productos de Mercado";
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(294, 43);
+            btnAdd.Location = new Point(336, 57);
+            btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(132, 23);
+            btnAdd.Size = new Size(151, 31);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar productos";
             btnAdd.UseVisualStyleBackColor = true;
@@ -69,66 +72,74 @@
             // 
             // txtAddProduct
             // 
-            txtAddProduct.Location = new Point(10, 43);
+            txtAddProduct.Location = new Point(11, 57);
+            txtAddProduct.Margin = new Padding(3, 4, 3, 4);
             txtAddProduct.Name = "txtAddProduct";
-            txtAddProduct.Size = new Size(278, 23);
+            txtAddProduct.Size = new Size(317, 27);
             txtAddProduct.TabIndex = 1;
             // 
             // lbProductTitle
             // 
             lbProductTitle.AutoSize = true;
-            lbProductTitle.Location = new Point(10, 20);
+            lbProductTitle.Location = new Point(11, 27);
             lbProductTitle.Name = "lbProductTitle";
-            lbProductTitle.Size = new Size(109, 15);
+            lbProductTitle.Size = new Size(138, 20);
             lbProductTitle.TabIndex = 0;
             lbProductTitle.Text = "Ingrese el producto";
             // 
             // groupBoxPilaPendding
             // 
             groupBoxPilaPendding.Controls.Add(btnClearPending);
-            groupBoxPilaPendding.Controls.Add(listViewPilaPendding);
-            groupBoxPilaPendding.Location = new Point(32, 138);
+            groupBoxPilaPendding.Controls.Add(listViewPendding);
+            groupBoxPilaPendding.Location = new Point(37, 184);
+            groupBoxPilaPendding.Margin = new Padding(3, 4, 3, 4);
             groupBoxPilaPendding.Name = "groupBoxPilaPendding";
-            groupBoxPilaPendding.Size = new Size(196, 254);
+            groupBoxPilaPendding.Padding = new Padding(3, 4, 3, 4);
+            groupBoxPilaPendding.Size = new Size(224, 339);
             groupBoxPilaPendding.TabIndex = 1;
             groupBoxPilaPendding.TabStop = false;
             groupBoxPilaPendding.Text = "Canasta de Pendientes";
             // 
             // btnClearPending
             // 
-            btnClearPending.Location = new Point(6, 225);
+            btnClearPending.Location = new Point(7, 300);
+            btnClearPending.Margin = new Padding(3, 4, 3, 4);
             btnClearPending.Name = "btnClearPending";
-            btnClearPending.Size = new Size(184, 23);
+            btnClearPending.Size = new Size(210, 31);
             btnClearPending.TabIndex = 3;
             btnClearPending.Text = "Vaciar Pendientes";
             btnClearPending.UseVisualStyleBackColor = true;
             btnClearPending.Click += btnClearPending_Click;
             // 
-            // listViewPilaPendding
+            // listViewPendding
             // 
-            listViewPilaPendding.Location = new Point(6, 22);
-            listViewPilaPendding.Name = "listViewPilaPendding";
-            listViewPilaPendding.Size = new Size(184, 197);
-            listViewPilaPendding.TabIndex = 0;
-            listViewPilaPendding.UseCompatibleStateImageBehavior = false;
-            listViewPilaPendding.View = View.List;
+            listViewPendding.Location = new Point(7, 29);
+            listViewPendding.Margin = new Padding(3, 4, 3, 4);
+            listViewPendding.Name = "listViewPendding";
+            listViewPendding.Size = new Size(210, 261);
+            listViewPendding.TabIndex = 0;
+            listViewPendding.UseCompatibleStateImageBehavior = false;
+            listViewPendding.View = View.List;
             // 
             // groupBoxPaid
             // 
             groupBoxPaid.Controls.Add(btnClearPaid);
             groupBoxPaid.Controls.Add(listViewPaid);
-            groupBoxPaid.Location = new Point(268, 138);
+            groupBoxPaid.Location = new Point(306, 184);
+            groupBoxPaid.Margin = new Padding(3, 4, 3, 4);
             groupBoxPaid.Name = "groupBoxPaid";
-            groupBoxPaid.Size = new Size(196, 254);
+            groupBoxPaid.Padding = new Padding(3, 4, 3, 4);
+            groupBoxPaid.Size = new Size(224, 339);
             groupBoxPaid.TabIndex = 2;
             groupBoxPaid.TabStop = false;
             groupBoxPaid.Text = "Canasta de Pagados";
             // 
             // btnClearPaid
             // 
-            btnClearPaid.Location = new Point(6, 225);
+            btnClearPaid.Location = new Point(7, 300);
+            btnClearPaid.Margin = new Padding(3, 4, 3, 4);
             btnClearPaid.Name = "btnClearPaid";
-            btnClearPaid.Size = new Size(184, 23);
+            btnClearPaid.Size = new Size(210, 31);
             btnClearPaid.TabIndex = 4;
             btnClearPaid.Text = "Vaciar Pagados";
             btnClearPaid.UseVisualStyleBackColor = true;
@@ -136,18 +147,20 @@
             // 
             // listViewPaid
             // 
-            listViewPaid.Location = new Point(6, 22);
+            listViewPaid.Location = new Point(7, 29);
+            listViewPaid.Margin = new Padding(3, 4, 3, 4);
             listViewPaid.Name = "listViewPaid";
-            listViewPaid.Size = new Size(184, 197);
+            listViewPaid.Size = new Size(210, 261);
             listViewPaid.TabIndex = 1;
             listViewPaid.UseCompatibleStateImageBehavior = false;
             listViewPaid.View = View.List;
             // 
             // btnPassToPaid
             // 
-            btnPassToPaid.Location = new Point(234, 212);
+            btnPassToPaid.Location = new Point(267, 283);
+            btnPassToPaid.Margin = new Padding(3, 4, 3, 4);
             btnPassToPaid.Name = "btnPassToPaid";
-            btnPassToPaid.Size = new Size(28, 23);
+            btnPassToPaid.Size = new Size(32, 31);
             btnPassToPaid.TabIndex = 3;
             btnPassToPaid.Text = ">";
             btnPassToPaid.UseVisualStyleBackColor = true;
@@ -155,9 +168,10 @@
             // 
             // btnPassToPedding
             // 
-            btnPassToPedding.Location = new Point(234, 241);
+            btnPassToPedding.Location = new Point(267, 321);
+            btnPassToPedding.Margin = new Padding(3, 4, 3, 4);
             btnPassToPedding.Name = "btnPassToPedding";
-            btnPassToPedding.Size = new Size(28, 23);
+            btnPassToPedding.Size = new Size(32, 31);
             btnPassToPedding.TabIndex = 4;
             btnPassToPedding.Text = "<";
             btnPassToPedding.UseVisualStyleBackColor = true;
@@ -165,17 +179,18 @@
             // 
             // FrPilaBasica
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(500, 424);
+            ClientSize = new Size(569, 555);
             Controls.Add(btnPassToPedding);
             Controls.Add(btnPassToPaid);
             Controls.Add(groupBoxPaid);
             Controls.Add(groupBoxPilaPendding);
             Controls.Add(groupBoxData);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            MaximumSize = new Size(516, 463);
-            MinimumSize = new Size(516, 463);
+            MaximumSize = new Size(587, 602);
+            MinimumSize = new Size(587, 602);
             Name = "FrPilaBasica";
             Text = "FrPilaBasica";
             groupBoxData.ResumeLayout(false);
@@ -193,7 +208,7 @@
         private TextBox txtAddProduct;
         private Label lbProductTitle;
         private GroupBox groupBoxPilaPendding;
-        private ListView listViewPilaPendding;
+        private ListView listViewPendding;
         private GroupBox groupBoxPaid;
         private ListView listViewPaid;
         private Button btnClearPending;

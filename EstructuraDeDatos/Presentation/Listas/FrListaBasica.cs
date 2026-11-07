@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EstructuraDeDatos.DynamicStructure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,10 @@ namespace EstructuraDeDatos.Presentation
         public FrListaBasica()
         {
             InitializeComponent();
-            numeros = new List<int>();
+            nombres = new Lista<string>();
         }
 
-        private List<int> numeros;
+        private Lista<string> nombres;
 
         public long validateNumber(Control control)
         {
@@ -41,28 +42,40 @@ namespace EstructuraDeDatos.Presentation
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            long number = validateNumber(txtNumero);
-            if (number != -1)
+            //long number = validateNumber(txtNumero);
+            //if (number != -1)
+            //{
+            nombres.Add(txtNumero.Text);
+            updateListBox();
+                //listBoxNumeros.Items.Add(number);
+            //}
+        }
+
+        private void updateListBox()
+        {
+            listBoxNumeros.Items.Clear();
+
+            foreach(string nombre in nombres)
             {
-                numeros.Add((int)number);
-                listBoxNumeros.Items.Add(number);
+                listBoxNumeros.Items.Add(nombre);
             }
         }
 
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            long position = validateNumber(txtNumero);
+            //long position = validateNumber(txtNumero);
 
-            if (position >= 0 && position < numeros.Count)
-            {
-                numeros.RemoveAt((int)position);
+            //if (position >= 0 && position < numeros.Count)
+            //{
+            //    numeros.RemoveAt((int)position);
 
-                listBoxNumeros.Items.RemoveAt((int)position);
-            }
-            else
-            {
-                MessageBox.Show("Posición inválida");
-            }
+            //    listBoxNumeros.Items.RemoveAt((int)position);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Posición inválida");
+            //}
         }
     }
 }

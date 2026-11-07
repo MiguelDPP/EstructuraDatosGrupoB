@@ -45,19 +45,20 @@ namespace EstructuraDeDatos.Infraestructure
 
         public T GetById(E id)
         {
-            for (int i = 0; i < _cache.Count; i++)
-            {
-                T data = _cache.ElementAt(i);
-                if (data.Id.Equals(id))
-                {
-                    return data;
-                }
-            }
+            //for (int i = 0; i < _cache.Count; i++)
+            //{
+            //    T data = _cache.ElementAt(i);
+            //    if (data.Id.Equals(id))
+            //    {
+            //        return data;
+            //    }
+            //}
 
-            return null;
-            //return _cache.FirstOrDefault(d => d.Id.Equals(id));
+            //return null;
+            return _cache.FirstOrDefault(d => d.Id.Equals(id));
         }
 
+        //IEnurable
         public Lista<T> GetAll()
         {
             return _cache;
@@ -65,17 +66,35 @@ namespace EstructuraDeDatos.Infraestructure
 
         public void Update(T entity)
         {
-            //int index = _cache.FindIndex(d => d.Id.Equals( entity.Id));
-            int index = -1;
-            for (int i = 0; i < _cache.Count; i++)
-            {
-                T data = _cache.ElementAt(i);
-                if (data.Id.Equals(entity.Id))
-                {
-                    index = i;
-                    break;
-                }
-            }
+
+
+
+            // int index = _cache.FindIndex((d) => d.Id.Equals(entity.Id));
+            
+            int index = _cache.FindIndex(
+                    (T data) => data.Id.Equals(entity.Id)
+            );
+            //int index = -1;
+
+            //int 
+            //foreach(T data in _cache)
+            //{
+            //    if (data.Id.Equals(entity.Id))
+            //    {
+
+            //        break;
+            //    }
+            //}
+
+            //for (int i = 0; i < _cache.Count; i++)
+            //{
+            //    T data = _cache.ElementAt(i);
+            //    if (data.Id.Equals(entity.Id))
+            //    {
+            //        index = i;
+            //        break;
+            //    }
+            //}
 
             if (index != -1)
                 _cache.Set(index, entity);
@@ -83,16 +102,16 @@ namespace EstructuraDeDatos.Infraestructure
 
         public bool Exist(E Id)
         {
-            for (int i = 0; i < _cache.Count; i++)
-            {
-                T data = _cache.ElementAt(i);
-                if (data.Id.Equals(Id))
-                {
-                    return true;
-                }
-            }
-            return false;
-            //return _cache.Exists(d => d.Id.Equals(Id));
+            //for (int i = 0; i < _cache.Count; i++)
+            //{
+            //    T data = _cache.ElementAt(i);
+            //    if (data.Id.Equals(Id))
+            //    {
+            //        return true;
+            //    }
+            //}
+            //return false;
+            return _cache.Exists(d => d.Id.Equals(Id));
         }
 
         //Implementacion de IUnitOfWork
