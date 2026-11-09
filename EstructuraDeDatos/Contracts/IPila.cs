@@ -9,5 +9,7 @@ namespace EstructuraDeDatos.Contracts
         void Push(T data);
         T Pop();
         void Clear();
+
+        T Peek();
     }
 }
